@@ -1,14 +1,26 @@
 {
-  "name": "hanz_worker",
+  "name": "main_worker",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "sourceRoot": "packages/hanz_worker/src",
+  "projectType": "library",
+  "sourceRoot": "packages/main_worker/src",
   "targets": {
     "build": {
       "executor": "@monodon/rust:build",
       "outputs": ["{options.target-dir}"],
       "options": {
-        "target-dir": "dist/target/hanz_worker"
+        "target-dir": "dist/target/main_worker"
+      },
+      "configurations": {
+        "production": {
+          "release": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx",
+      "outputs": ["{options.target-dir}"],
+      "options": {
+        "target-dir": "dist/target/main_worker"
       },
       "configurations": {
         "production": {
@@ -20,7 +32,7 @@
       "executor": "@monodon/rust:test",
       "outputs": ["{options.target-dir}"],
       "options": {
-        "target-dir": "dist/target/hanz_worker"
+        "target-dir": "dist/target/main_worker"
       },
       "configurations": {
         "production": {
@@ -32,19 +44,7 @@
       "executor": "@monodon/rust:lint",
       "outputs": ["{options.target-dir}"],
       "options": {
-        "target-dir": "dist/target/hanz_worker"
-      }
-    },
-    "run": {
-      "executor": "@monodon/rust:run",
-      "outputs": ["{options.target-dir}"],
-      "options": {
-        "target-dir": "dist/target/hanz_worker"
-      },
-      "configurations": {
-        "production": {
-          "release": true
-        }
+        "target-dir": "dist/target/main_worker"
       }
     }
   },
