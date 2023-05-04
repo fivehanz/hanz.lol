@@ -1,7 +1,7 @@
 
 [workspace]
 members = [
-	'packages/worker',
+	'packages/hanz_worker',
 ]
 
 [profile.release]
