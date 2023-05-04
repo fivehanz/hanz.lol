@@ -13,6 +13,9 @@ devDependencies:
   '@nxext/svelte':
     specifier: ^15.7.0
     version: 15.7.0(@nrwl/cypress@15.9.3)(@nrwl/linter@15.9.3)(@nrwl/workspace@15.9.3)(nx@16.0.3)(rxjs@7.8.1)(svelte-preprocess@4.10.7)(svelte@3.58.0)(typescript@4.9.5)(vite@4.3.4)
+  '@nxext/sveltekit':
+    specifier: 14.0.0-next.2
+    version: 14.0.0-next.2(nx@16.0.3)(typescript@4.9.5)
   '@vitest/ui':
     specifier: ^0.25.8
     version: 0.25.8
@@ -1852,6 +1855,20 @@ packages:
       - typescript
     dev: true
 
+  /@nrwl/devkit@14.8.8(nx@16.0.3)(typescript@4.9.5):
+    resolution: {integrity: sha512-NLgLRfGyv9aMHxGi+rrVRPLYbuqYoGcRVVr0bo3PP1cVSry1THBoLivvPzqf/tniM1S4EzJdrOSau7dfPVGNFA==}
+    peerDependencies:
+      nx: '>= 13.10 <= 15'
+    dependencies:
+      '@phenomnomnominal/tsquery': 4.1.1(typescript@4.9.5)
+      ejs: 3.1.9
+      ignore: 5.2.4
+      nx: 16.0.3
+      tslib: 2.5.0
+    transitivePeerDependencies:
+      - typescript
+    dev: true
+
   /@nrwl/devkit@15.7.0(nx@16.0.3)(typescript@4.9.5):
     resolution: {integrity: sha512-aPh3xnSpP4HH8sU2ICuuhtBgp2k4ydfkW/uTOlK/BvT94++AJ/Aj8ZSJFWAd2IteFsMNynPz5c0jLO+MSTqRnA==}
     peerDependencies:
@@ -2368,6 +2385,15 @@ packages:
       - ts-node
       - typescript
       - vite
+    dev: true
+
+  /@nxext/sveltekit@14.0.0-next.2(nx@16.0.3)(typescript@4.9.5):
+    resolution: {integrity: sha512-6+5RCKrN6j8EA4ozh7vt5BnHPynJF/vqX4+BpLpAqzDmCSo/hcTmfUzygnTaPFYwhbdBBgizFkzg1KyPtH2J5Q==}
+    dependencies:
+      '@nrwl/devkit': 14.8.8(nx@16.0.3)(typescript@4.9.5)
+    transitivePeerDependencies:
+      - nx
+      - typescript
     dev: true
 
   /@nxext/vite@15.1.0(@nrwl/workspace@15.9.3)(nx@16.0.3)(rxjs@7.8.1)(typescript@4.9.5)(vite@4.3.4):

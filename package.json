@@ -9,6 +9,7 @@
     "@nx/vite": "16.0.3",
     "@nx/workspace": "16.0.3",
     "@nxext/svelte": "^15.7.0",
+    "@nxext/sveltekit": "14.0.0-next.2",
     "@vitest/ui": "^0.25.8",
     "jsdom": "~20.0.3",
     "nx": "16.0.3",
@@ -20,3 +21,4 @@
     "vitest": "^0.25.8"
   }
 }
+
