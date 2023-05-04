@@ -4,7 +4,7 @@
   "projectType": "library",
   "sourceRoot": "packages/main_worker/src",
   "targets": {
-    "build": {
+    "build-og": {
       "executor": "@monodon/rust:build",
       "outputs": ["{options.target-dir}"],
       "options": {
@@ -16,16 +16,18 @@
         }
       }
     },
-    "serve": {
-      "executor": "@nx",
-      "outputs": ["{options.target-dir}"],
+    "deploy": {
+      "executor": "nx:run-commands",
       "options": {
-        "target-dir": "dist/target/main_worker"
-      },
-      "configurations": {
-        "production": {
-          "release": true
-        }
+        "cwd": "packages/main_worker",
+        "command": "wrangler publish"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/main_worker",
+        "command": "wrangler dev --experimental-local"
       }
     },
     "test": {

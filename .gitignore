@@ -5,10 +5,7 @@ dist
 tmp
 /out-tsc
 
-#rust
-.cargo/
-/.cargo/
-
+build/
 
 # dependencies
 node_modules
