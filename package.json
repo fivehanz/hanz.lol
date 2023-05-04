@@ -5,6 +5,8 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
+    "@miniflare/tre": "3.0.0-next.13",
+    "@monodon/rust": "^1.1.2",
     "@nx/js": "16.0.3",
     "@nx/vite": "16.0.3",
     "@nx/workspace": "16.0.3",
@@ -19,6 +21,9 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "^4.0.2",
     "vitest": "^0.25.8"
+  },
+  "dependencies": {
+    "wrangler": "^2.19.0"
   }
 }
 

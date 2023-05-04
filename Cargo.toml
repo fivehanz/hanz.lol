@@ -1,0 +1,8 @@
+
+[workspace]
+members = [
+	'packages/main_worker',
+]
+
+[profile.release]
+lto = true

@@ -1,0 +1,14 @@
+[package]
+name = "main_worker"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+axum = { version = "0.6.16", default-features = false }
+axum-cloudflare-adapter = "0.4.2"
+tower-service = "0.3.2"
+tracing = "0.1.37"
+worker = "0.0.16"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
