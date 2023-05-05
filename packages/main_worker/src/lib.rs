@@ -3,17 +3,17 @@ mod routes;
 mod utils;
 
 use axum::{
-    http::StatusCode,
     routing::{delete, get, post, put},
-    Json, Router as AxumRouter,
+    Router as AxumRouter,
 };
 use axum_cloudflare_adapter::{to_axum_request, to_worker_response, EnvWrapper};
-use routes::links::{create, delete as delete_route, read, update};
-use routes::main::{home, slug_handler};
+use routes::{
+    links::{create, delete as delete_route, read, update},
+    main::{fallback, home, slug_handler},
+};
 use std::fmt::Error;
-use utils::axum::AxumState;
-
 use tower_service::Service;
+use utils::axum::AxumState;
 use worker::{event, Context, Env, Request, Response};
 
 #[event(fetch)]
@@ -38,11 +38,4 @@ pub async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response, Err
         Ok(response) => Ok(response),
         Err(_err) => Err(std::fmt::Error),
     }
-}
-
-pub async fn fallback() -> (StatusCode, Json<serde_json::Value>) {
-    (
-        StatusCode::NOT_FOUND,
-        Json(serde_json::json!({ "status": "Not Found" })),
-    )
 }

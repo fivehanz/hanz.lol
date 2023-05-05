@@ -2,7 +2,9 @@ use crate::utils::axum::AxumState;
 use axum::http::header::CONTENT_TYPE;
 use axum::{
     extract::{Path, State},
+    http::StatusCode,
     response::IntoResponse,
+    Json,
 };
 use std::ops::Deref;
 use worker::Env;
@@ -51,4 +53,11 @@ pub async fn slug_handler(Path(slug): Path<String>) -> impl IntoResponse {
     //     Redirect::temporary("/")
     // }
     // }
+}
+
+pub async fn fallback() -> (StatusCode, Json<serde_json::Value>) {
+    (
+        StatusCode::NOT_FOUND,
+        Json(serde_json::json!({ "status": "Not Found" })),
+    )
 }
