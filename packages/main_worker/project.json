@@ -27,7 +27,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/main_worker",
-        "command": "wrangler dev --experimental-local"
+        "command": "export NO_D1_WARNING=true && wrangler dev --experimental-local"
       }
     },
     "test": {

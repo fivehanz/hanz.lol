@@ -4,11 +4,30 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-axum = { version = "0.6.16", default-features = false }
+axum = { version = "0.6.16", default-features = false, features = ["json"] }
 axum-cloudflare-adapter = "0.4.2"
+js-sys = "0.3.61"
 tower-service = "0.3.2"
 tracing = "0.1.37"
+wasm-bindgen = "0.2.84"
+wasm-bindgen-futures = "0.4.34"
 worker = "0.0.16"
+serde = "1.0.162"
+serde_json = "1.0.96"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+    'Request',
+    'Response',
+    'ResponseInit',
+    'Url',
+    'UrlSearchParams',
+]
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"

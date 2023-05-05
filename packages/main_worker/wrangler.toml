@@ -2,8 +2,19 @@ name = "main_worker"
 main = "build/worker/shim.mjs"
 compatibility_date = "2022-01-20"
 
+kv_namespaces = [
+  { binding = "links", preview_id="ea17d7d5a9e0494d8f9407fb258405f5", id = "962d0245cf7c4e81a289eb7caf1d9bc1" },
+  # { binding = "links", preview_id = "ea17d7d5a9e0494d8f9407fb258405f5" }
+  # { binding = "links_dev", preview_id = "b7dabe5fc5d045dcbe9f6e3a263bbe29" }
+]
+
 [vars]
 WORKERS_RS_VERSION = "0.0.16"
 
 [build]
 command = "cargo install -q worker-build && worker-build --release"
+
+[[ d1_databases ]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "hanz-dot-lol"
+database_id = "d682e8c8-0b9c-4f16-bed3-9b147d72c50e"
