@@ -34,9 +34,11 @@ pub async fn slug_handler(Path(slug): Path<String>) -> impl IntoResponse {
         .unwrap()
 
     // TODO: add logging, metrics
+    // TODO: get href from the slug
+
     // error handling with match
     // match database_init().await {
-    // TODO: redirect to the relevant URL
+    // ! TODO: redirect to the relevant URL
     // Ok(db) => {
     //     match get_url_from_db(slug, &db).await {
     //         Ok(url) => Redirect::temporary(url.as_str()),
@@ -47,7 +49,7 @@ pub async fn slug_handler(Path(slug): Path<String>) -> impl IntoResponse {
     //     }
     // },
 
-    // redirect to home
+    // !redirect to home
     // Err(e) => {
     //     println!("{} -- {}", e, slug);
     //     Redirect::temporary("/")
