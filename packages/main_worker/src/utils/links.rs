@@ -1,13 +1,19 @@
 use std::error::Error;
 
-use crate::kv::kv::{get_text, put_text};
+use wasm_bindgen::JsValue;
+
+use crate::kv::kv::WorkersKv;
 use crate::types::links::{Link, LinkSlug};
 
 // create a new link
 // TODO: implement creation of a new link
-// pub async fn set_link(link: Link) -> Result<(), Error> {
-//     // ! write the logic of creating the link in utils files and import it
+// ! write the logic of creating the link in utils files and import it
+// pub async fn set_link(link: Link) -> Result<(), JsValue> {
+// create a new WorkersKv instance
+// let kv = WorkersKv { kv };
 
+// create a key value pair
+// kv.put_text(&link.slug, &link.href, 60).await
 //     // return the payload for now
 //     (StatusCode::CREATED, Json(payload))
 // }

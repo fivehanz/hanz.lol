@@ -7,6 +7,12 @@ use js_sys::{Object, Reflect};
 use wasm_bindgen::{prelude::*, JsCast};
 use web_sys::{Request, Response, ResponseInit};
 
+// #[wasm_bindgen]
+// pub async fn get_links_kv_instance() -> Result<WorkersKvJs, JsValue> {
+//     links
+// }
+
+// ! create a struct and implement the interface to create and get links
 #[wasm_bindgen]
 pub async fn handle(kv: WorkersKvJs, req: JsValue) -> Result<Response, JsValue> {
     let req: Request = req.dyn_into()?;
@@ -57,12 +63,12 @@ extern "C" {
     ) -> Result<JsValue, JsValue>;
 }
 
-struct WorkersKv {
+pub struct WorkersKv {
     kv: WorkersKvJs,
 }
 
 impl WorkersKv {
-    async fn put_text(&self, key: &str, value: &str, ttl: u64) -> Result<(), JsValue> {
+    pub async fn put_text(&self, key: &str, value: &str, ttl: u64) -> Result<(), JsValue> {
         let options = Object::new();
         Reflect::set(&options, &"expirationTtl".into(), &(ttl as f64).into())?;
         self.kv
@@ -86,7 +92,7 @@ impl WorkersKv {
     //     Ok(())
     // }
 
-    async fn get_text(&self, key: &str) -> Result<Option<String>, JsValue> {
+    pub async fn get_text(&self, key: &str) -> Result<Option<String>, JsValue> {
         let options = Object::new();
         Reflect::set(&options, &"type".into(), &"text".into())?;
         Ok(self
