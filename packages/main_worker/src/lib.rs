@@ -1,4 +1,3 @@
-mod kv;
 mod routes;
 mod types;
 mod utils;
@@ -19,6 +18,10 @@ use worker::{event, Context, Env, Request, Response};
 
 #[event(fetch)]
 pub async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response, Error> {
+    // Initialize console error panic hook
+    #[cfg(feature = "console_error_panic_hook")]
+    console_error_panic_hook::set_once();
+
     let axum_state = AxumState {
         env_wrapper: EnvWrapper::new(env),
     };

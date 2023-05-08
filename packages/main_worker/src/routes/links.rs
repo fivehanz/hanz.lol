@@ -1,17 +1,14 @@
-use crate::types::links::{Link, LinkSlug};
+use crate::types::links::{set_link, Link, LinkSlug};
 // use crate::utils::links::{delete_link, get_link, set_link, update_link};
 use axum::{extract, http::StatusCode, Json};
 
 // create a new link
 // TODO: implement creation of a new link
-pub async fn create(extract::Json(payload): extract::Json<Link>) -> (StatusCode, Json<Link>) {
-    // match set_link(payload) {
-    //     Ok(link) => (StatusCode::CREATED, Json(payload)),
-    //     Err(err) => (StatusCode::BAD_REQUEST, Json(err)),
-    // }
-
-    // return the payload for now
-    (StatusCode::CREATED, Json(payload))
+pub async fn create(extract::Json(payload): extract::Json<Link>) -> StatusCode {
+    match set_link(payload.slug, payload.href) {
+        Ok(_) => StatusCode::CREATED,
+        Err(_) => StatusCode::BAD_REQUEST,
+    }
 }
 
 // read and return the link
