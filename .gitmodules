@@ -1,0 +1,3 @@
+[submodule "packages/dub"]
+	path = packages/dub
+	url = git@github.com:fivehanz/dub.git
